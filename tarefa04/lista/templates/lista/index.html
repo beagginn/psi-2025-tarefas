@@ -1,0 +1,22 @@
+{% extends "lista/base.html" %}
+{% load static %}
+{% block title %} Lista de Tarefas {% endblock title %}
+
+{% block content %}
+<h1>Minhas Tarefas</h1>
+<ul>
+    {% for tarefa in tarefas %}
+        <li>
+            <strong>{{ tarefa.nome }}</strong> - 
+            Prazo: {{ tarefa.prazo }} - 
+            {% if tarefa.status %}
+                <span style="color: green;">Concluída ✅</span>
+            {% elif tarefa.prazo < hoje %}
+                <span style="color: red;">Atrasada ⏰</span>
+            {% else %}
+                <span style="color: blue;">Pendente</span>
+            {% endif %}
+        </li>
+    {% endfor %}
+</ul>
+{% endblock content %}
