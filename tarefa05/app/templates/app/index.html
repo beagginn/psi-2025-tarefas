@@ -1,0 +1,15 @@
+{% extends "app/base.html" %}
+{% load static %}
+{% block title %} Lista de Tarefas {% endblock title %}
+
+{% block content %}
+<h1>Olá</h1>
+<ul>
+    {% for postagem in postagens %}
+        <li>
+            <strong>{{ postagem.titulo }}</strong> - 
+            Data: {{ postagem.data }} - 
+        </li>
+    {% endfor %}
+</ul>
+{% endblock content %}
